@@ -1,0 +1,43 @@
+// ベース色
+$color-main: #1B1310;
+$color-active: #E81919;
+
+// 背景色
+$color-bg: #1B1310;
+$color-bg-header: #1B1310;
+$color-bg-footer: #1B1310;
+$color-bg-drawer: #1B1310;
+
+// テキスト色
+$color-text-black: #141414;
+$color-text-white: #FFF;
+$color-text-active: #E81919;
+
+// レイアウト幅
+$header-height: 74px;
+
+$header-inner-width: 1200px;
+$layout-inner-width: 1030px;
+
+$fv-boxWidth-pc: 449px;
+$fv-boxHeight-pc: 136px;
+$fv-boxWidth-sp: 300px;
+$fv-boxHeight-sp: 100px;
+
+// ブレークポイント
+$breakpoints: (sp: 'screen and (max-width: 767px)',
+    tab-only: '(min-width: 768px) and (max-width: #{$layout-inner-width - 1px})',
+    tab: 'screen and (max-width: #{$layout-inner-width - 1px})',
+    pc: 'screen and (min-width: #{$layout-inner-width})',
+);
+
+// 階層
+$layer: (
+    drawer-btn: 40, //ドロワーボタン
+    drawer-menu: 35, //ドロワーメニュー
+    drawer-overlay: 30, //ドロワーメニュー背景のオーバーレイ
+    floating: 25, // toTOPボタン
+    header: 20, // ヘッダー
+    footer: 10, // フッター
+    default: 1,
+);

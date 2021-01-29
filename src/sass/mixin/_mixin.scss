@@ -1,0 +1,11 @@
+// メディアクエリー
+@mixin mq($breakpoint: sp) {
+    @media#{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+// z-index
+@mixin z-index($key) {
+    z-index: map-get($layer, $key);
+}

@@ -1,0 +1,494 @@
+/* -------------------------
+メイン
+------------------------- */
+/* ファーストビュー */
+.fv {
+    width: 100vw;
+    height: 740px;
+    background: $color-main url(../img/fv-bgi@2x.jpg) no-repeat bottom right/ cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: $header-height;
+
+    @include mq("sp") {
+        height: 590px;
+        background: #1D1512 url(../img/fv-bgi_sp@2x.jpg) no-repeat top right/ contain;
+    }
+
+    /* タイトルボックスのアニメーション */
+    &__box {
+        position: relative;
+        border: 2px solid transparent;
+        width: calc(#{$fv-boxWidth-pc} + 4px);
+        height: calc(#{$fv-boxHeight-pc} + 4px);
+        overflow: hidden;
+
+        @include mq("sp") {
+            width: calc(#{$fv-boxWidth-sp} + 4px);
+            height: calc(#{$fv-boxHeight-sp} + 4px);
+        }
+
+        /* ボーダーの共通スタイル */
+        &-h, &-v {
+            &::before, &::after {
+                content: "";
+                position: absolute;
+                background-color: $color-text-white;
+            }
+        }
+        /* 水平方向のライン */
+        &-h {
+            /* 水平ラインの大きさ */
+            &::before, &::after {
+                width: $fv-boxWidth-pc;
+                height: 2px;
+
+                @include mq("sp") {
+                    width: $fv-boxWidth-sp;
+                }
+            }
+            /* 上ライン */
+            &::before {
+                top: 0px;
+                left: 0px;
+                transform: translateX($fv-boxWidth-pc);
+
+                @include animation(
+                    $name: kf-animate-boxTop,
+                    $duration: 1s,
+                    $timing-function: linear,
+                    $delay: .3s,
+                    $fill-mode: forwards
+                );
+
+                @include mq("sp") {
+                    transform: translateX($fv-boxWidth-sp);
+
+                    @include animation(
+                        $name: kf-animate-boxTop,
+                        $duration: 1.4s,
+                        $timing-function: linear,
+                        $delay: .2s,
+                        $fill-mode: forwards
+                    );
+                }
+            }
+            /* 下ライン */
+            &::after {
+                bottom: 0px;
+                right: 0px;
+                transform: translateX(-$fv-boxWidth-pc);
+
+                @include animation(
+                    $name: kf-animate-boxBottom,
+                    $duration: 1s,
+                    $timing-function: linear,
+                    $delay: 0.3s,
+                    $fill-mode: both
+                );
+
+                @include mq("sp") {
+                    transform: translateX(-$fv-boxWidth-sp);
+
+                    @include animation(
+                        $name: kf-animate-boxBottom,
+                        $duration: 1.4s,
+                        $timing-function: linear,
+                        $delay: .2s,
+                        $fill-mode: forwards
+                    );
+                }
+            }
+        }
+        /* 垂直方向のライン */
+        &-v {
+            /* 垂直ラインの大きさ */
+            &::before, &::after {
+                width: 2px;
+                height: $fv-boxHeight-pc;
+
+                @include mq("sp") {
+                    height: $fv-boxHeight-sp;
+                }
+            }
+            /* 左ライン */
+            &::before {
+                bottom: 0px;
+                left: 0px;
+                transform: translateY(-$fv-boxHeight-pc);
+
+                @include animation(
+                    $name: kf-animate-boxLeft,
+                    $duration: .5s,
+                    $timing-function: linear,
+                    $delay: 1.3s,
+                    $fill-mode: both
+                    );
+
+                @include mq("sp") {
+                    transform: translateY(-$fv-boxHeight-sp);
+
+                    @include animation(
+                        $name: kf-animate-boxLeft,
+                        $duration: .7s,
+                        $timing-function: linear,
+                        $delay: 1.4s,
+                        $fill-mode: forwards
+                    );
+                }
+            }
+            /* 右ライン */
+            &::after {
+                top: 0px;
+                right: 0px;
+                transform: translateY($fv-boxHeight-pc);
+
+                @include animation(
+                    $name: kf-animate-boxRight,
+                    $duration: .5s,
+                    $timing-function: linear,
+                    $delay: 1.3s,
+                    $fill-mode: both
+                );
+
+                @include mq("sp") {
+                    transform: translateY($fv-boxHeight-sp);
+
+                    @include animation(
+                        $name: kf-animate-boxRight,
+                        $duration: .7s,
+                        $timing-function: linear,
+                        $delay: 1.4s,
+                        $fill-mode: forwards
+                    );
+                }
+            }
+        }
+
+        /* 各ラインのアニメーション */
+        @keyframes kf-animate-boxTop {
+            0% {
+                transform: translateX($fv-boxWidth-pc);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes kf-animate-boxLeft {
+            0% {
+                transform: translateY(-$fv-boxHeight-pc);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes kf-animate-boxBottom {
+            0% {
+                transform: translateX(-$fv-boxWidth-pc);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes kf-animate-boxRight {
+            0% {
+                transform: translateY($fv-boxHeight-pc);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    /* タイトルアニメーション */
+    &__animate-title {
+        font-family: $font-family-en;
+        font-size: rem(50);
+        color: $color-text-white;
+        text-align: center;
+        line-height: $fv-boxHeight-pc;
+
+        @include mq("sp") {
+            font-size: rem(30);
+            line-height: $fv-boxHeight-sp;
+        }
+
+        .char {
+            display: inline-block;
+
+            &:not(:last-child) {
+                margin-right: -13px;
+
+                @include mq("sp") {
+                    margin-right: -8px;
+                }
+            }
+
+            &:nth-child(6) {
+                margin-right: -2px;
+            }
+
+            @include animation(
+                $name: kf-animate-chars,
+                $timing-function: cubic-bezier(0.39, 1.57, 0.58, 1),
+                $fill-mode: both
+            );
+
+            @for $i from 1 through 13 {
+                &:nth-child(#{$i}) {
+                    animation-delay: 1.8s + ($i * .06s);
+
+                    @include mq('sp') {
+                        animation-delay: 2.1s + ($i * .06s);
+                    }
+                }
+            }
+
+            @keyframes kf-animate-chars {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-40%);
+                }
+            
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+    }   
+}
+
+/* アバウト → 共通クラスのみで対応 */
+
+/* サービス */
+.service {
+    &__content {
+        display: flex;
+        justify-content: space-between;
+
+        @include mq("sp") {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+
+        &:nth-of-type(even) {
+            flex-direction: row-reverse;
+
+            @include mq("sp") {
+                flex-direction: column-reverse;
+            }
+        }
+
+        &:not(:first-of-type) {
+            margin: 50px 0 0 0;
+        }
+
+        &-img {
+            max-width: 480px;
+            width: 48%;
+            height: 100%;
+    
+            @include mq("sp") {
+                width: 100%;
+                margin-top: 40px;
+            }
+
+            img {
+                object-fit: cover;
+            }
+        }
+    
+        &-text {
+            max-width: 480px;
+            width: 48%;
+
+            @include mq("sp") {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/* ニュース */
+.news {
+    &__cards {
+        display: flex;
+
+        @include mq("sp") {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__card {
+        width: calc((100% - 34px * 2) / 3);
+        box-shadow: 0 0 6px rgba(27, 19, 16, .4);
+        transition: all .4s ease-out 0s;
+
+        @include mq("tab") {
+            width: calc((100% - 20px * 2) / 3);
+        }
+
+        @include mq("sp") {
+            max-width: 320px;
+            width: 93%;
+
+            &:not(:first-child) {
+                margin-top: 50px;
+            }
+        }
+
+        &:not(:last-child) {
+            margin-right: 34px;
+
+            @include mq("tab") {
+                margin-right: 20px;
+            }
+
+            @include mq("sp") {
+                margin-right: 0;
+            }
+        }
+
+        &-img {
+            max-width: 320px;
+
+            img {
+                object-fit: cover;
+            }
+        }
+        
+        &-text {
+            font-family: $font-family-sansSerif;
+            font-size: rem(13);
+            font-weight: 600;
+            line-height: leading(25, 13);
+            padding: 25px 33px;
+        }
+
+        &:hover {
+            transform: scale(1.02) translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, .2);
+        }
+    }
+}
+
+/* コンタクト */
+.contact {
+    max-width: 700px;
+
+    @include mq("tab") {
+        width: 70%;
+    }
+
+    @include mq("sp") {
+        width: 93%;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-family: $font-family-sansSerif;
+        font-weight: 300;
+        line-height: leading(30, 16);
+    }
+
+    &__box {
+        height: 30px;
+        margin: 0 0 25px 0;
+
+        &-text {
+            height: 171px;
+            margin: 0 0 50px 0;
+        }
+    }
+
+    &__btn {
+        @include _btn;
+        margin: 0 auto;
+    }
+}
+
+/* フローティング */
+.toTop {
+    position: fixed;
+    right: 2vw;
+    bottom: 4vw;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: lightseagreen;
+    transform: translateY(7px);
+    transition: all .6s ease-out 0s;
+    @include z-index("floating");
+
+    a {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 28px;
+            left: 23px;
+            width: 24px;
+            height: 24px;
+            border-top: 5px solid $color-text-white;
+            border-right: 5px solid $color-text-white;
+            transform: rotate(-45deg);
+        }
+
+        &::after {
+            content: "PAGE TOP";
+            position: absolute;
+            top: -24px;
+            left: 6px;
+            font-family: $font-family-en;
+            font-size: rem(12);
+            letter-spacing: kerning(20);
+            white-space: nowrap;
+            color: $color-text-black;
+            opacity: 0;
+            transition: all .4s ease-out .2s;
+        }        
+    }
+
+    &:hover {
+        transform: translateY(0);
+
+        a::after {
+            opacity: 1;
+        }
+    }
+
+    /* Firefox対応｜position調整 */
+    @-moz-document url-prefix(){
+        a {
+            &::before {
+                top: 45px;
+            }
+    
+            &::after {
+                top: -5px;
+                left: 5px;
+            }        
+        }
+    }
+}

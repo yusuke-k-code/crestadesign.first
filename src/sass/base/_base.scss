@@ -1,0 +1,103 @@
+/* -------------------------
+BASE（共通）
+------------------------- */
+body {
+    font-size: rem(16);
+    letter-spacing: kerning(50);
+    color: $color-text-black;
+    font-family: $font-family-ja;
+}
+
+/* コンテンツインナー幅設定 */
+.inner {
+    max-width: $layout-inner-width;
+    margin: 0 auto;
+
+    @include mq("tab") {
+        width: 93%;
+    }
+}
+
+/* セクションTOPのmargin */
+section {
+    padding: 100px 0 50px;
+}
+
+/* タイトル（h2）設定 */
+.sectionTitle {
+    font-family: $font-family-en;
+    font-size: rem(36);
+    font-weight: bold;
+    letter-spacing: kerning(50);
+    text-align: center;
+    padding: 0 0 70px 0;
+}
+
+/* サブタイトル（h3）の設定 */
+.subTitle {
+    font-size: rem(24);
+    font-weight: bold;
+    line-height: leading(48, 24);
+    letter-spacing: kerning(100);
+
+    @include mq("tab") {
+        font-size: rem(20);
+        line-height: leading(35, 20);
+    }
+
+    @include mq("sp") {
+        line-height: leading(40, 20);
+    }
+}
+
+/* テキストの設定 */
+.text {
+    font-size: rem(14);
+    font-weight: bold;
+    line-height: leading(30, 14);
+    letter-spacing: kerning(50);
+    margin-top: 40px;
+
+    @include mq("tab") {
+        line-height: leading(25, 14);
+        margin-top: 30px;
+    }
+
+    @include mq("tab") {
+        line-height: leading(30, 14);
+        margin-top: 30px;
+    }
+}
+
+/* -------------------------
+フェードイン
+------------------------- */
+.fadeIn-up {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 2.5s;
+}
+
+/* -------------------------
+補完クラス
+------------------------- */
+/* PCだけ非表示 */
+.hidden-pc {
+    @include mq('pc') {
+        display: none;
+    }
+}
+
+/* タブレットだけ非表示 */
+.hidden-tab {
+    @include mq('tab-only') {
+        display: none;
+    }
+}
+
+/* スマホだけ非表示 */
+.hidden-sp {
+    @include mq('sp') {
+        display: none;
+    }
+}

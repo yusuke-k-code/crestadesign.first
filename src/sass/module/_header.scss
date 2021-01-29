@@ -1,0 +1,232 @@
+/* -------------------------
+ヘッダー
+------------------------- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $color-bg-header;
+    width: 100vw;
+    height: $header-height;
+    @include z-index("header");
+    border-bottom: 2px solid #FFF;
+
+    @include mq("sp") {
+        border-bottom: 2px solid #FFFCFC;
+    }
+
+    &__inner {
+        max-width: $header-inner-width;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        @include mq("tab") {
+            width: 93%;
+        }
+    }
+}
+
+.header__logo {
+    font-family: $font-family-en;
+    font-size: rem(26);
+    font-weight: normal;
+    line-height: leading(34, 26);
+    letter-spacing: kerning(0);
+
+    @include mq("sp") {
+        display: block;
+    }
+    
+    a {
+        display: block;
+        color: $color-text-white;
+    }
+}
+
+/* ナビゲーション */
+.nav {
+    height: 21px;
+
+    @include mq("sp") {
+        display: none;
+    }
+
+    &__lists {
+        height: 100%;    
+    }
+
+    &__list {
+        display: inline-block;
+        font-size: rem(16);
+        font-family: $font-family-en;
+        line-height: leading(21, 16);
+        letter-spacing: kerning(0);
+        
+        &:not(:last-child) {
+            margin-right: 55px;
+
+            @include mq("tab") {
+                margin-right: 40px;
+            }
+        }
+    }
+
+    &__link {
+        display: block;
+        color: $color-text-white;
+
+        /* hover時のエフェクト */
+        position: relative;
+        overflow: hidden;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: lightseagreen;
+            transform: translateX(-105%);
+            transition: all .3s ease 0s;
+            z-index: -1;
+        }
+
+        &:hover::before {
+            transform: translateX(0);
+        }
+
+        /* is-activeクラス付与 */
+        &.is-active {
+
+            &::before {
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+/* SP時のドロワーメニュー */
+.drawer__btn {
+    width: 25px;
+    height: 16px;
+    position: fixed;
+    top: auto;
+    bottom: auto;
+    right: 4vw;
+    @include z-index("drawer-btn");
+    display: none;
+
+    @include mq("sp") {
+        display: block;
+    }
+
+    &-bar {
+        width: 100%;
+        height: 2px;
+        background-color: $color-text-white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        transition: all .4s ease 0s;
+
+        &:nth-child(2) {
+            top: 100%;
+        }
+
+        &:nth-child(3) {
+            top: -100%;
+        }
+    }
+
+    &.open {
+        & .drawer__btn-bar {
+            &:nth-child(1) {
+                transform: translateX(30px);
+                opacity: 0;
+            }
+
+            &:nth-child(2) {
+                top: 0;
+                transform: rotate(-45deg);
+            }
+
+            &:nth-child(3) {
+                top: 0;
+                transform: rotate(225deg);
+            }
+        }
+    }
+}
+
+.drawer__overlay {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(51, 51, 51, .8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include z-index("drawer-overlay");
+    display: none;
+    opacity: 0;
+    transition: all .5s ease 0s;
+
+    &.open {
+        display: block;
+        opacity: 1;
+    }
+}
+
+.drawer {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: $color-bg-drawer;
+    @include z-index("drawer-menu");
+    overflow-y: auto;
+    display: none;
+    transition: all .5s ease 0s;
+
+    @include mq("sp") {
+        display: block;
+    }
+
+    &__lists {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__list {
+        text-align: center;
+        
+        &:not(:first-child) {
+            margin-top: 50px;
+        }
+    }
+
+    &__link {
+        padding: 5px;
+        transition: all .4s ease 0s;
+        color: $color-text-white;
+        font-size: rem(16);
+        font-family: $font-family-en;
+        line-height: leading(30, 16);
+        display: block;
+    
+        &:hover {
+            opacity: .6;
+        }
+    }
+
+    &.open {
+        right: 0;
+    }
+}

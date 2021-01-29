@@ -1,0 +1,23 @@
+/* -------------------------
+フッター
+------------------------- */
+.footer {
+    height: 80px;
+    background-color: $color-bg-footer;
+    position: relative;
+    @include z-index("footer");
+}
+
+.copyright {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: $font-family-en;
+    font-size: rem(14);
+    font-weight: 300;
+    line-height: leading(30, 14);
+    color: $color-text-white;
+    width: 100%;
+}

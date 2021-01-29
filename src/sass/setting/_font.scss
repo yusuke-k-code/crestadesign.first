@@ -1,0 +1,39 @@
+/* -------------------------
+Google Fonts
+------------------------- */
+/* Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+/* Noto Sans Japanese */
+@import url('https://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
+
+$font-family-serif: 
+"游明朝体",
+"Yu Mincho",
+YuMincho,
+"ヒラギノ明朝 Pro",
+"Hiragino Mincho Pro",
+"MS P明朝",
+"MS PMincho",
+serif;
+
+$font-family-sansSerif: 
+'Hiragino Kaku Gothic ProN',
+'ヒラギノ角ゴ ProN W3',
+YuGothic,
+'Yu Gothic',
+'Meiryo UI',
+'メイリオ',
+Meiryo,
+sans-serif;
+
+$font-family-ja: 
+'Noto Sans Japanese',
+serif;
+
+$font-family-en: 
+'Roboto',
+sans-serif;
+
+$font-family-btn:
+'Avenir',
+sans-serif;

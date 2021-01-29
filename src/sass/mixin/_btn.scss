@@ -1,0 +1,14 @@
+// 共通ボタン
+@mixin _btn {
+    text-decoration: none;
+    border: none;
+    background-color: $color-main;
+    color: $color-text-white;
+    font-family: $font-family-btn;
+    font-weight: 700;
+    font-size: rem(20);
+    height: 59px;
+    width: 235px;
+    border-radius: 999px;
+    box-shadow: 0 0 6px $color-main;
+}
