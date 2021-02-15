@@ -1234,8 +1234,9 @@ section {
 }
 
 .contact__box-text {
-  height: 171px;
+  min-height: 171px;
   margin: 0 0 50px 0;
+  resize: vertical;
 }
 
 .contact__btn {
@@ -1252,6 +1253,10 @@ section {
   -webkit-box-shadow: 0 0 6px #1B1310;
           box-shadow: 0 0 6px #1B1310;
   margin: 0 auto;
+}
+
+.contact input, .contact textarea {
+  padding: 5px 15px;
 }
 
 /* フローティング */
