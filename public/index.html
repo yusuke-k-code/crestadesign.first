@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <!-- prefix属性でOGP宣言 -->
-<html lang="ja" prefix="og: サイトURL#">
+<html lang="ja" prefix="og:http://ogp.me/ns#">
 
 <head>
     <meta charset="UTF-8">
     <!-- SPブラウザでのリンク自動変換機能の制御 -->
     <meta name="format-detection" content="email=no,telephone=no,address=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cresta Design｜コーディング初級編
-    </title>
+    <title>Cresta Design｜コーディング初級編</title>
     <!-- PC120文字程度 SP90文字程度 → 前半50文字に重要な内容入力 -->
     <meta name="description" content="ページコンテンツの概要">
 
@@ -17,16 +16,16 @@
     <!-- TOPページはwebsite、同Webの記事など下層ページはarticle -->
     <meta property="og:type" content="website">
     <!-- サイト名などのブランド情報を含まない20文字以内 -->
-    <meta property="og:title" content="XDカンプからコーディング">
+    <meta property="og:title" content="XDデザインカンプからコーディング">
     <!-- 80〜90文字が最適 -->
-    <meta property="og:description" content="クリ★スタさんが提供されているXDデザインカンプを元にコーディングしました。レスポンシブ対応のほか、CSS animationやjQueryで動きをつけています。所要時間：4時間30分">
+    <meta property="og:description" content="クリ★スタさんが提供されているXDデザインカンプを元にコーディング。Sass＋BEM・Sass分割管理・レスポンシブ・CSS animation・jQuery。所要時間：4時間30分（稼働1日）">
     <!-- ページのサイト名・ブランド情報 -->
-    <meta property="og:site_name" content="Cresta 1st">
+    <meta property="og:site_name" content="Cresta Design｜1st">
     <!-- SNS上で表示させる画像の絶対パス（FBは1200*630p推奨） -->
     <meta property="og:image" content="https://yusuke-k-code.github.io/crestadesign.first/public/assets/img/thumbnail.png">
     <!-- Twitter設定 -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@ツイッターユーザー名">
+    <meta name="twitter:site" content="@coding_days">
     <!-- //OGPここまで -->
     
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -121,7 +120,7 @@
         <section class="service inner fadeIn-up" id="service">
             <h2 class="sectionTitle">Service</h2>
             <div class="service__content">
-                <div class="service__content-img"><img src="./assets/img/service-image@2x.jpg" alt="" width="480px" height="240px"></div>
+                <div class="service__content-img"><img src="./assets/img/service-image@2x.jpg" alt="" loading="lazy" width="480px" height="240px"></div>
                 <div class="service__content-text ">
                     <h3 class="subTitle">
                         リリース時のサポートで<br>
@@ -133,7 +132,7 @@
                 </div>
             </div>
             <div class="service__content">
-                <div class="service__content-img"><img src="./assets/img/service-image02@2x.jpg" alt="" width="480px" height="240px"></div>
+                <div class="service__content-img"><img src="./assets/img/service-image02@2x.jpg" alt="" loading="lazy" width="480px" height="240px"></div>
                 <div class="service__content-text">
                     <h3 class="subTitle">
                         リリース後のサポートで<br>
@@ -150,26 +149,26 @@
         <!-- ニュース -->
         <section class="news inner fadeIn-up" id="news">
             <h2 class="sectionTitle">News</h2>
-            <ul class="news__cards">
-                <li class="news__card">
-                    <div class="news__card-img"><img src="./assets/img/card-image1@2x.jpg" alt="" width="320px" height="200px"></div>
+            <div class="news__cards">
+                <article class="news__card">
+                    <div class="news__card-img"><img src="./assets/img/card-image1@2x.jpg" alt="" loading="lazy" width="320px" height="200px"></div>
                     <p class="news__card-text">
                         新規サイトを公開しました。今回のサイトは白と黒を基調にしたミニマルなデザインになっています。
                     </p>
-                </li>
-                <li class="news__card">
-                    <div class="news__card-img"><img src="./assets/img/card-image2@2x.jpg" alt="" width="320px" height="200px"></div>
+                </article>
+                <article class="news__card">
+                    <div class="news__card-img"><img src="./assets/img/card-image2@2x.jpg" alt="" loading="lazy" width="320px" height="200px"></div>
                     <p class="news__card-text">
                         新規サイトを公開しました。今回のサイトは白と黒を基調にしたミニマルなデザインになっています。
                     </p>
-                </li>
-                <li class="news__card">
-                    <div class="news__card-img"><img src="./assets/img/card-image3@2x.jpg" alt="" width="320px" height="200px"></div>
+                </article>
+                <article class="news__card">
+                    <div class="news__card-img"><img src="./assets/img/card-image3@2x.jpg" alt="" loading="lazy" width="320px" height="200px"></div>
                     <p class="news__card-text">
                         新規サイトを公開しました。今回のサイトは白と黒を基調にしたミニマルなデザインになっています。
                     </p>
-                </li>
-            </ul>
+                </article>
+            </div>
         </section>
         <!-- //ここまでニュース -->
 
@@ -180,19 +179,19 @@
                 <div class="contact__items">
                     <div class="contact__item">
                         <label for="label__name" class="contact__title">担当者名</label>
-                        <input type="text" id="label__name" class="contact__box">
+                        <input type="text" name="" id="label__name" class="contact__box">
                     </div>
                     <div class="contact__item">
                         <label for="label__tel" class="contact__title">電話番号</label>
-                        <input type="tel" id="label__tel" class="contact__box" required>
+                        <input type="tel" name="" id="label__tel" class="contact__box" required>
                     </div>
                     <div class="contact__item">
                         <label for="label__mail" class="contact__title">メールアドレス</label>
-                        <input type="email" id="label__mail" class="contact__box" required>
+                        <input type="email" name="" id="label__mail" class="contact__box" required>
                     </div>
                     <div class="contact__item">
                         <label for="label__text" class="contact__title">お問い合わせ内容</label>
-                        <input id="label__text" class="contact__box-text" required>
+                        <textarea name="" id="label__text" class="contact__box-text" required></textarea>
                     </div>
                     <div class="contact__item">
                         <input type="submit" class="contact__btn _btn" value="送信">
